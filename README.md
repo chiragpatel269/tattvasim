@@ -1,11 +1,9 @@
 # Tattvasim — Quantum-Powered Drug Discovery 
 
-A faithful static HTML/CSS/JS replica of **[tattvasim.netlify.app](https://tattvasim.netlify.app)**, reverse-engineered from the original build artifacts.
-
 ## 📁 Project Structure
 
 ```
-tattvasim-replica/
+tattvasim/
 ├── index.html          # Home page
 ├── services.html       # Services page (all 6 service offerings)
 ├── case-studies.html   # Industry case studies (7 detailed studies)
@@ -23,10 +21,10 @@ tattvasim-replica/
 
 ### Option 1 — GitHub CLI (fastest)
 ```bash
-cd tattvasim-replica
+cd tattvasim
 git init
 git add .
-git commit -m "Initial commit: Tattvasim website replica"
+git commit -m "Initial commit: Tattvasim website"
 gh repo create tattvasim-website --public --source=. --remote=origin --push
 # Then enable GitHub Pages in repo Settings → Pages → Branch: main
 ```
@@ -35,7 +33,7 @@ gh repo create tattvasim-website --public --source=. --remote=origin --push
 ```bash
 git init
 git add .
-git commit -m "Initial commit: Tattvasim website replica"
+git commit -m "Initial commit: Tattvasim website"
 git remote add origin https://github.com/YOUR_USERNAME/tattvasim-website.git
 git branch -M main
 git push -u origin main
