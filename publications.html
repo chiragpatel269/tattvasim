@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | Tattvasim</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FILTER TABS ── */
+    .pub-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border: 1.5px solid hsl(220, 20%, 88%);
+      border-radius: 100px;
+      background: white;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: hsl(220, 15%, 46%);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover {
+      border-color: hsl(265, 70%, 55%);
+      color: hsl(265, 70%, 55%);
+    }
+    .filter-btn.active {
+      background: hsl(265, 70%, 55%);
+      border-color: hsl(265, 70%, 55%);
+      color: white;
+    }
+
+    /* ── PUBLICATION CARD ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .pub-card {
+      background: white;
+      border: 1px solid hsl(220, 20%, 88%);
+      border-left: 4px solid transparent;
+      border-radius: 0.75rem;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 2px 8px hsl(220, 40%, 13%, 0.04);
+      transition: all 0.25s;
+    }
+    .pub-card:hover {
+      box-shadow: 0 8px 30px hsl(220, 40%, 13%, 0.1);
+      transform: translateY(-2px);
+    }
+    .pub-card[data-type="journal"] { border-left-color: hsl(265, 70%, 55%); }
+    .pub-card[data-type="book"]    { border-left-color: hsl(175, 65%, 45%); }
+    .pub-card[data-type="conference"] { border-left-color: hsl(155, 75%, 45%); }
+    .pub-card[data-type="patent"]  { border-left-color: hsl(35, 90%, 55%);  }
+    .pub-card[data-type="preprint"]{ border-left-color: hsl(200, 75%, 50%); }
+
+    .pub-card.hidden { display: none; }
+
+    .pub-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .pub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.2rem 0.625rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-journal   { background: hsl(265,70%,55%,0.1); color: hsl(265,70%,55%); }
+    .badge-book      { background: hsl(175,65%,45%,0.1); color: hsl(175,65%,45%); }
+    .badge-conference{ background: hsl(155,75%,45%,0.1); color: hsl(155,75%,45%); }
+    .badge-patent    { background: hsl(35,90%,55%,0.1);  color: hsl(35,90%,45%);  }
+    .badge-preprint  { background: hsl(200,75%,50%,0.1); color: hsl(200,75%,45%); }
+
+    .pub-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: hsl(220, 15%, 60%);
+      flex-shrink: 0;
+    }
+
+    .pub-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: hsl(220, 40%, 13%);
+      line-height: 1.4;
+      margin-bottom: 0.375rem;
+    }
+    .pub-title a { color: inherit; transition: color 0.2s; }
+    .pub-title a:hover { color: hsl(265, 70%, 55%); }
+
+    .pub-authors {
+      font-size: 0.875rem;
+      color: hsl(220, 15%, 46%);
+      margin-bottom: 0.375rem;
+      font-style: italic;
+    }
+    .pub-authors strong {
+      color: hsl(220, 40%, 25%);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .pub-journal {
+      font-size: 0.85rem;
+      color: hsl(220, 40%, 35%);
+      font-weight: 500;
+      margin-bottom: 0.875rem;
+    }
+
+    .pub-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.625rem;
+      margin-top: 0.75rem;
+    }
+
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1.5px solid;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .pub-link-doi   { border-color: hsl(265,70%,55%); color: hsl(265,70%,55%); }
+    .pub-link-doi:hover { background: hsl(265,70%,55%); color: white; }
+    .pub-link-pdf   { border-color: hsl(155,75%,45%); color: hsl(155,75%,45%); }
+    .pub-link-pdf:hover { background: hsl(155,75%,45%); color: white; }
+    .pub-link-arxiv { border-color: hsl(200,75%,50%); color: hsl(200,75%,50%); }
+    .pub-link-arxiv:hover { background: hsl(200,75%,50%); color: white; }
+
+    .pub-tag {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      background: hsl(215, 25%, 94%);
+      color: hsl(220, 15%, 46%);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    /* ── STATS BAR ── */
+    .pub-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    @media(min-width: 640px) { .pub-stats { grid-template-columns: repeat(5, 1fr); } }
+
+    .pub-stat {
+      background: white;
+      border: 1px solid hsl(220, 20%, 88%);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 8px hsl(220, 40%, 13%, 0.04);
+    }
+    .pub-stat-num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: hsl(265, 70%, 55%);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .pub-stat-label {
+      font-size: 0.78rem;
+      color: hsl(220, 15%, 46%);
+      font-weight: 500;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: hsl(220, 15%, 60%);
+    }
+    .empty-state-icon { font-size: 3rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="logo-img" />
+        <span class="logo-text">Tattvasim</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="nav-cta">Discuss Your Project</a>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" style="color:hsl(175,65%,60%); margin-bottom:1rem;">Research Output</div>
+      <h1>Publications</h1>
+      <p>Peer-reviewed research, book chapters, conference proceedings, patents, and preprints from the Tattvasim team.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 3rem;">
+    <div class="container">
+
+      <!-- STATS -->
+      <div class="pub-stats">
+        <div class="pub-stat">
+          <div class="pub-stat-num" id="count-all">0</div>
+          <div class="pub-stat-label">Total Publications</div>
+        </div>
+        <div class="pub-stat">
+          <div class="pub-stat-num" id="count-journal">0</div>
+          <div class="pub-stat-label">Journal Articles</div>
+        </div>
+        <div class="pub-stat">
+          <div class="pub-stat-num" id="count-book">0</div>
+          <div class="pub-stat-label">Book Chapters</div>
+        </div>
+        <div class="pub-stat">
+          <div class="pub-stat-num" id="count-conference">0</div>
+          <div class="pub-stat-label">Conference Papers</div>
+        </div>
+        <div class="pub-stat">
+          <div class="pub-stat-num" id="count-patent">0</div>
+          <div class="pub-stat-label">Patents</div>
+        </div>
+      </div>
+
+      <!-- FILTER TABS -->
+      <div class="pub-filters">
+        <button class="filter-btn active" onclick="filterPubs('all', this)">All Publications</button>
+        <button class="filter-btn" onclick="filterPubs('journal', this)">📄 Journal Articles</button>
+        <button class="filter-btn" onclick="filterPubs('book', this)">📗 Book Chapters</button>
+        <button class="filter-btn" onclick="filterPubs('conference', this)">🎤 Conference Papers</button>
+        <button class="filter-btn" onclick="filterPubs('patent', this)">🏛️ Patents</button>
+        <button class="filter-btn" onclick="filterPubs('preprint', this)">📝 Preprints</button>
+      </div>
+
+      <!-- PUBLICATION LIST -->
+      <div class="pub-list" id="pubList">
+
+        <!-- ── JOURNAL ARTICLES ── -->
+        <div class="pub-card" data-type="journal">
+          <div class="pub-top">
+            <span class="pub-badge badge-journal">📄 Journal Article</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your journal article title here</a>
+          </div>
+          <div class="pub-authors"><strong>Patel, C.N.</strong>, Modi, K.M., et al.</div>
+          <div class="pub-journal">Journal Name · Volume(Issue) · Pages · 2025</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-doi">DOI ↗</a>
+            <a href="#" class="pub-link pub-link-pdf">PDF ↗</a>
+            <span class="pub-tag">Quantum Chemistry</span>
+            <span class="pub-tag">Drug Discovery</span>
+          </div>
+        </div>
+
+        <div class="pub-card" data-type="journal">
+          <div class="pub-top">
+            <span class="pub-badge badge-journal">📄 Journal Article</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your journal article title here</a>
+          </div>
+          <div class="pub-authors"><strong>Modi, K.M.</strong>, Patel, C.N., et al.</div>
+          <div class="pub-journal">Journal Name · Volume(Issue) · Pages · 2024</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-doi">DOI ↗</a>
+            <a href="#" class="pub-link pub-link-pdf">PDF ↗</a>
+            <span class="pub-tag">DFT</span>
+            <span class="pub-tag">Molecular Modeling</span>
+          </div>
+        </div>
+
+        <!-- ── BOOK CHAPTERS ── -->
+        <div class="pub-card" data-type="book">
+          <div class="pub-top">
+            <span class="pub-badge badge-book">📗 Book Chapter</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your book chapter title here</a>
+          </div>
+          <div class="pub-authors"><strong>Patel, C.N.</strong>, Modi, K.M.</div>
+          <div class="pub-journal">In: Book Title. Publisher · ISBN · 2025</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-doi">DOI ↗</a>
+            <span class="pub-tag">Computational Chemistry</span>
+          </div>
+        </div>
+
+        <div class="pub-card" data-type="book">
+          <div class="pub-top">
+            <span class="pub-badge badge-book">📗 Book Chapter</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your book chapter title here</a>
+          </div>
+          <div class="pub-authors"><strong>Modi, K.M.</strong>, et al.</div>
+          <div class="pub-journal">In: Book Title. Publisher · ISBN · 2024</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-doi">DOI ↗</a>
+            <span class="pub-tag">AI in Drug Discovery</span>
+          </div>
+        </div>
+
+        <!-- ── CONFERENCE PAPERS ── -->
+        <div class="pub-card" data-type="conference">
+          <div class="pub-top">
+            <span class="pub-badge badge-conference">🎤 Conference Paper</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your conference paper title here</a>
+          </div>
+          <div class="pub-authors"><strong>Patel, C.N.</strong>, Modi, K.M., et al.</div>
+          <div class="pub-journal">Conference Name · Location · 2025</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-pdf">PDF ↗</a>
+            <span class="pub-tag">ADMET</span>
+            <span class="pub-tag">Machine Learning</span>
+          </div>
+        </div>
+
+        <div class="pub-card" data-type="conference">
+          <div class="pub-top">
+            <span class="pub-badge badge-conference">🎤 Conference Paper</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your conference paper title here</a>
+          </div>
+          <div class="pub-authors"><strong>Modi, K.M.</strong>, Patel, C.N., et al.</div>
+          <div class="pub-journal">Conference Name · Location · 2024</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-pdf">PDF ↗</a>
+            <span class="pub-tag">Molecular Dynamics</span>
+          </div>
+        </div>
+
+        <!-- ── PATENTS ── -->
+        <div class="pub-card" data-type="patent">
+          <div class="pub-top">
+            <span class="pub-badge badge-patent">🏛️ Patent</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your patent title here</a>
+          </div>
+          <div class="pub-authors"><strong>Patel, C.N.</strong>, Modi, K.M.</div>
+          <div class="pub-journal">Patent No. XXXXXXXX · Filing Date: 2025</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-doi">View Patent ↗</a>
+            <span class="pub-tag">Drug Discovery</span>
+          </div>
+        </div>
+
+        <div class="pub-card" data-type="patent">
+          <div class="pub-top">
+            <span class="pub-badge badge-patent">🏛️ Patent</span>
+            <span class="pub-year">2024</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your patent title here</a>
+          </div>
+          <div class="pub-authors"><strong>Modi, K.M.</strong>, Patel, C.N.</div>
+          <div class="pub-journal">Patent No. XXXXXXXX · Filing Date: 2024</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-doi">View Patent ↗</a>
+            <span class="pub-tag">Computational Method</span>
+          </div>
+        </div>
+
+        <!-- ── PREPRINTS ── -->
+        <div class="pub-card" data-type="preprint">
+          <div class="pub-top">
+            <span class="pub-badge badge-preprint">📝 Preprint</span>
+            <span class="pub-year">2025</span>
+          </div>
+          <div class="pub-title">
+            <a href="#">Add your preprint title here</a>
+          </div>
+          <div class="pub-authors"><strong>Patel, C.N.</strong>, Modi, K.M., et al.</div>
+          <div class="pub-journal">arXiv / bioRxiv / ChemRxiv · 2025</div>
+          <div class="pub-footer">
+            <a href="#" class="pub-link pub-link-arxiv">arXiv ↗</a>
+            <a href="#" class="pub-link pub-link-pdf">PDF ↗</a>
+            <span class="pub-tag">Preprint</span>
+            <span class="pub-tag">QM/MM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-state-icon">🔍</div>
+        <p>No publications found in this category.</p>
+      </div>
+
+      <!-- ADD YOUR PUBLICATIONS NOTE -->
+      <div style="margin-top:3rem; padding:1.5rem; background:hsl(265,70%,55%,0.06); border:1px dashed hsl(265,70%,55%,0.3); border-radius:0.75rem; text-align:center;">
+        <p style="color:hsl(265,70%,45%); font-size:0.9rem; font-weight:500;">
+          📌 To add your real publications, edit <strong>publications.html</strong> and replace the placeholder text with your actual titles, authors, journal names, DOI links, and years.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="footer-logo-img" />
+            <span>Tattvasim</span>
+          </div>
+          <p>Pioneering quantum chemistry solutions for drug discovery. Precision at the molecular level, innovation at scale.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">DFT & QED Calculations</a>
+          <a href="services.html">Quantum Molecular Modeling</a>
+          <a href="services.html">AI-Powered Modeling</a>
+          <a href="services.html">ADMET Predictions</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="team.html">Our Team</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="publications.html">Publications</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="mailto:tattvasim@outlook.com">tattvasim@outlook.com</a>
+          <a href="publications.html">Publications</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Tattvasim. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Count publications per type
+    const cards = document.querySelectorAll('.pub-card');
+    const counts = { all: 0, journal: 0, book: 0, conference: 0, patent: 0, preprint: 0 };
+    cards.forEach(c => {
+      counts.all++;
+      counts[c.dataset.type]++;
+    });
+    document.getElementById('count-all').textContent = counts.all;
+    document.getElementById('count-journal').textContent = counts.journal;
+    document.getElementById('count-book').textContent = counts.book;
+    document.getElementById('count-conference').textContent = counts.conference;
+    document.getElementById('count-patent').textContent = counts.patent;
+
+    // Filter function
+    function filterPubs(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      let visible = 0;
+      cards.forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      document.getElementById('emptyState').style.display = visible === 0 ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
