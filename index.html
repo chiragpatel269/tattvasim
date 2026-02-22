@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tattvasim | Quantum-Powered Drug Discovery & Computational Chemistry</title>
+  <meta name="description" content="Accelerate drug discovery with quantum chemistry, DFT calculations, MD simulations, and AI-driven molecular modeling. Industry-leading computational solutions for pharma and biotech." />
+  <meta name="keywords" content="quantum chemistry, drug discovery, DFT calculations, molecular dynamics, QSAR, ADMET, computational biology, in silico, molecular modeling" />
+  <meta name="author" content="Tattvasim" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tattvasim | Quantum-Powered Drug Discovery" />
+  <meta property="og:description" content="Harness quantum chemistry and AI for next-generation drug discovery. From DFT calculations to ADMET predictions." />
+  <meta property="og:site_name" content="Tattvasim" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tattvasim | Quantum-Powered Drug Discovery" />
+  <meta name="twitter:description" content="Harness quantum chemistry and AI for next-generation drug discovery." />
+  <link rel="canonical" href="https://tattvasim.com" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Transparent navbar — merges with hero image */
+    .navbar {
+      background: transparent !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+      backdrop-filter: none !important;
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      background: hsla(220, 40%, 8%, 0.93) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+      backdrop-filter: blur(14px) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.35) !important;
+    }
+    .navbar .nav-link { color: rgba(255,255,255,0.78) !important; }
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active { color: rgba(255,255,255,1) !important; }
+    .navbar .logo-text { color: white !important; }
+    .navbar .hamburger span { background: white !important; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="logo-img" />
+        <span class="logo-text">Tattvasim</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="nav-cta">Discuss Your Project</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-overlay"></div>
+    <img src="assets/1.jpg" alt="Quantum molecular visualization" class="hero-bg-img" onerror="this.style.display='none'" />
+    <div class="hero-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-dots">
+      <div class="dot dot-accent"></div>
+      <div class="dot dot-signal"></div>
+      <div class="dot dot-highlight"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-up">Next-Generation Computational Chemistry</div>
+      <h1 class="hero-title animate-fade-up delay-1">
+        Quantum-Powered Discovery for the<br/>
+        <span class="gradient-text">Quantum Drug Discovery</span>
+      </h1>
+      <p class="hero-subtitle animate-fade-up delay-2">
+        Harness the precision of quantum chemistry and AI-driven modeling to accelerate your drug discovery pipeline. From DFT calculations to ADMET predictions, we deliver actionable molecular insights.
+      </p>
+      <div class="hero-actions animate-fade-up delay-3">
+        <a href="services.html" class="btn-accent">Explore Services</a>
+        <a href="contact.html" class="btn-outline-white">Discuss Your Project</a>
+      </div>
+      <div class="hero-scroll animate-float">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS / TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">🏆</div>
+          <div>
+            <div class="trust-label">Industry Recognition</div>
+            <div class="trust-desc">Recipients of multiple computational chemistry innovation awards.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🌍</div>
+          <div>
+            <div class="trust-label">Global Collaborations</div>
+            <div class="trust-desc">Partnerships with pharmaceutical companies across 3 continents.</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🎓</div>
+          <div>
+            <div class="trust-label">Academic Excellence</div>
+            <div class="trust-desc">Published in top-tier journals including Nature Chemistry.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Comprehensive Quantum & Computational Solutions</div>
+        <h2 class="section-title">From first-principles calculations to AI-driven predictions, we provide the full spectrum of computational chemistry services to accelerate your research.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card animate-fade-up">
+          <div class="service-icon accent-icon">⚛️</div>
+          <h3>DFT & QED Calculations</h3>
+          <p>Density Functional Theory and Quantum Electrodynamics calculations for precise electronic structure analysis.</p>
+          <div class="service-tags">
+            <span class="tag tag-accent">DFT Calculations</span>
+            <span class="tag tag-accent">Electronic structure</span>
+            <span class="tag tag-accent">Energy calculations</span>
+          </div>
+        </div>
+        <div class="service-card animate-fade-up delay-1">
+          <div class="service-icon highlight-icon">🧬</div>
+          <h3>Quantum Molecular Modeling</h3>
+          <p>High-fidelity molecular models using quantum chemistry methods for drug-target interactions.</p>
+          <div class="service-tags">
+            <span class="tag tag-highlight">Binding site analysis</span>
+            <span class="tag tag-highlight">Docking analysis</span>
+            <span class="tag tag-highlight">Free energy perturbation</span>
+          </div>
+        </div>
+        <div class="service-card animate-fade-up delay-2">
+          <div class="service-icon signal-icon">🤖</div>
+          <h3>AI-Powered Modeling</h3>
+          <p>Leverage machine learning for QSAR models, ADMET predictions, and virtual screening of compound libraries.</p>
+          <div class="service-tags">
+            <span class="tag tag-signal">QSAR & AI Modeling</span>
+            <span class="tag tag-signal">Machine Learning</span>
+            <span class="tag tag-signal">AI Library Screening</span>
+          </div>
+        </div>
+        <div class="service-card animate-fade-up">
+          <div class="service-icon accent-icon">💊</div>
+          <h3>ADMET Predictions</h3>
+          <p>In silico ADMET profiling using validated computational models for early-stage compound assessment.</p>
+          <div class="service-tags">
+            <span class="tag tag-accent">Lead Optimization</span>
+            <span class="tag tag-accent">Baseline assessment</span>
+            <span class="tag tag-accent">Actionable Insights</span>
+          </div>
+        </div>
+        <div class="service-card animate-fade-up delay-1">
+          <div class="service-icon highlight-icon">🔬</div>
+          <h3>Molecular Simulations</h3>
+          <p>Molecular dynamics simulations to understand protein flexibility and binding thermodynamics.</p>
+          <div class="service-tags">
+            <span class="tag tag-highlight">DFT optimization</span>
+            <span class="tag tag-highlight">Molecular dynamics</span>
+          </div>
+        </div>
+        <div class="service-card animate-fade-up delay-2">
+          <div class="service-icon signal-icon">📊</div>
+          <h3>Custom Pipelines</h3>
+          <p>Deliver comprehensive reports with prioritized compounds, optimization strategies, and clear recommendations.</p>
+          <div class="service-tags">
+            <span class="tag tag-signal">Lead prioritization</span>
+            <span class="tag tag-signal">Optimization roadmap</span>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="services.html" class="btn-primary">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="section workflow-section">
+    <div class="container">
+      <div class="section-header centered">
+        <h2 class="section-title">Quantum Meets Classical: Our Integrated Workflow</h2>
+        <p class="section-subtitle">A systematic approach combining quantum chemistry precision with AI acceleration to deliver reliable, actionable molecular insights.</p>
+      </div>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Discovery & Analysis</h3>
+            <p>Apply DFT and quantum mechanical methods to model electronic structures and molecular interactions with precision.</p>
+          </div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Quantum Modeling</h3>
+            <p>Leverage quantum mechanical calculations for accurate binding affinity predictions and lead optimization.</p>
+          </div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>AI-Powered Screening</h3>
+            <p>Leverage machine learning for QSAR models, ADMET predictions, and virtual screening of compound libraries.</p>
+          </div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Actionable Insights</h3>
+            <p>Deliver comprehensive reports with prioritized compounds, optimization strategies, and clear recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES PREVIEW -->
+  <section class="section case-studies-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Industry Case Studies</div>
+        <h2 class="section-title">Real-World Impact Across Industries</h2>
+        <p class="section-subtitle">From advanced materials discovery to sustainable energy solutions, our computational approaches drive innovation across multiple domains.</p>
+      </div>
+      <div class="cases-grid">
+        <div class="case-card case-drug">
+          <div class="case-tag">Drug Discovery</div>
+          <h3>Kinase Inhibitor Optimization</h3>
+          <p>Discovered novel allosteric binding sites through MD ensemble analysis</p>
+          <div class="case-tech">
+            <span>Allosteric Site Discovery</span>
+            <span>Lead Optimization</span>
+          </div>
+        </div>
+        <div class="case-card case-materials">
+          <div class="case-tag">Materials & Energy</div>
+          <h3>MOF-Based Functional Material Design</h3>
+          <p>Designed MOFs with tunable porosity and electronic structure using DFT and ML-guided screening for targeted applications</p>
+          <div class="case-tech">
+            <span>Porosity Engineering</span>
+            <span>Band Gap Engineering</span>
+          </div>
+        </div>
+        <div class="case-card case-energy">
+          <div class="case-tag">Clean Energy</div>
+          <h3>Green Hydrogen Catalyst Discovery</h3>
+          <p>Identified low-cost, high-activity hydrogen evolution catalysts by modeling adsorption energetics and reaction pathways</p>
+          <div class="case-tech">
+            <span>Reaction Pathways</span>
+            <span>Electrochemistry</span>
+          </div>
+        </div>
+        <div class="case-card case-drug">
+          <div class="case-tag">Drug Discovery</div>
+          <h3>PROTAC Linker Design</h3>
+          <p>Identified optimal linker conformations using quantum molecular modeling</p>
+          <div class="case-tech">
+            <span>Quantum Modeling</span>
+            <span>Fragment-Based Drug Design</span>
+          </div>
+        </div>
+        <div class="case-card case-materials">
+          <div class="case-tag">Materials</div>
+          <h3>MOF-Derived Electrodes</h3>
+          <p>Improved ion transport and electrochemical stability through computational screening of MOF-derived electrode materials</p>
+          <div class="case-tech">
+            <span>Battery Materials</span>
+            <span>Charge Transport</span>
+          </div>
+        </div>
+        <div class="case-card case-energy">
+          <div class="case-tag">Drug Discovery</div>
+          <h3>Metalloenzyme Mechanism Study</h3>
+          <p>Elucidated catalytic mechanism using QM/MM calculations and published in Nature Chemistry</p>
+          <div class="case-tech">
+            <span>Quantum Calculations</span>
+            <span>QM/MM</span>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="case-studies.html" class="btn-primary">View All Case Studies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAIN EXPERTISE -->
+  <section class="section domains-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-label">Areas of Expertise</div>
+        <h2 class="section-title">Quantum Drug Discovery</h2>
+      </div>
+      <div class="domains-grid">
+        <div class="domain-item"><div class="domain-icon">💊</div><span>Kinase Inhibitor Optimization</span></div>
+        <div class="domain-item"><div class="domain-icon">🔗</div><span>PROTAC Linker Design</span></div>
+        <div class="domain-item"><div class="domain-icon">🧬</div><span>Antibody-Drug Conjugate Screening</span></div>
+        <div class="domain-item"><div class="domain-icon">🧩</div><span>Fragment-Based Drug Design</span></div>
+        <div class="domain-item"><div class="domain-icon">📍</div><span>Pharmacophore Modeling</span></div>
+        <div class="domain-item"><div class="domain-icon">⚡</div><span>AI Library Screening</span></div>
+        <div class="domain-item"><div class="domain-icon">🧪</div><span>ADMET Predictions</span></div>
+        <div class="domain-item"><div class="domain-icon">📊</div><span>QSAR & AI Modeling</span></div>
+        <div class="domain-item"><div class="domain-icon">🔬</div><span>Allosteric Site Discovery</span></div>
+        <div class="domain-item"><div class="domain-icon">🏗️</div><span>MOF-Based Functional Material Design</span></div>
+        <div class="domain-item"><div class="domain-icon">🌱</div><span>Green Hydrogen Catalyst Discovery</span></div>
+        <div class="domain-item"><div class="domain-icon">🔋</div><span>Battery Electrode Material Optimization</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to see what quantum chemistry can do for your research?</h2>
+        <p>Fill out the form and receive a detailed proposal within 48 hours.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-accent-lg">Discuss Your Project</a>
+          <a href="contact.html" class="btn-outline-white-lg">Email Us Directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="footer-logo-img" />
+            <span>Tattvasim</span>
+          </div>
+          <p>Pioneering quantum chemistry solutions for drug discovery. Precision at the molecular level, innovation at scale.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">DFT & QED Calculations</a>
+          <a href="services.html">Quantum Molecular Modeling</a>
+          <a href="services.html">AI-Powered Modeling</a>
+          <a href="services.html">ADMET Predictions</a>
+          <a href="services.html">Molecular Simulations</a>
+          <a href="services.html">Custom Pipelines</a>
+        </div>
+        <div class="footer-col">
+          <h4>Expertise</h4>
+          <a href="case-studies.html">Drug Discovery</a>
+          <a href="case-studies.html">Materials & Energy Innovation</a>
+          <a href="case-studies.html">Chemical and Biosensing</a>
+          <a href="case-studies.html">Functional Materials</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="team.html">Our Team</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Tattvasim. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
