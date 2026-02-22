@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Tattvasim</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="logo-img" />
+        <span class="logo-text">Tattvasim</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="case-studies.html" class="nav-link">Case Studies</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="contact.html" class="nav-cta">Discuss Your Project</a>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label" style="color:hsl(175,65%,60%); margin-bottom:1rem;">Get In Touch</div>
+      <h1>Discuss Your Project</h1>
+      <p>Fill out the form and receive a detailed proposal within 48 hours.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Let's accelerate your discovery programs together</h2>
+          <p>Whether you're a biotech, pharma company, or academic institution — we partner to deliver quantum-accurate computational solutions tailored to your specific research objectives.</p>
+
+          <div class="contact-method">
+            <div class="contact-method-icon">📧</div>
+            <div>
+              <h4>Email Us Directly</h4>
+              <p>info@tattvasim.com</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">🏛️</div>
+            <div>
+              <h4>Based At</h4>
+              <p>Indrashil University, India</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">🌍</div>
+            <div>
+              <h4>Global Collaborations</h4>
+              <p>Partnerships across 3 continents</p>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">⏱️</div>
+            <div>
+              <h4>Response Time</h4>
+              <p>Detailed proposal within 48 hours</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form" id="contactForm">
+          <h3>Send Us a Message</h3>
+          <div class="form-grid">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" placeholder="Your first name" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Your last name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email" />
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Institution</label>
+              <input type="text" id="company" placeholder="Your organization" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service of Interest</label>
+              <select id="service">
+                <option value="">Select a service...</option>
+                <option>DFT & QED Calculations</option>
+                <option>Quantum Molecular Modeling</option>
+                <option>AI-Powered Modeling</option>
+                <option>ADMET Predictions</option>
+                <option>Molecular Simulations</option>
+                <option>Custom Pipelines</option>
+                <option>Other / Multiple</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Description</label>
+              <textarea id="message" rows="5" placeholder="Describe your project, targets of interest, and timeline..."></textarea>
+            </div>
+            <button onclick="submitForm()" class="btn-primary" style="width:100%; justify-content:center; padding: 0.875rem;">
+              Send Message
+            </button>
+            <p class="form-note">By submitting, you agree to our <a href="#">Privacy Policy</a>. We respond within 48 hours.</p>
+          </div>
+        </div>
+
+        <div class="contact-form" id="successMessage" style="display:none; text-align:center; padding:3rem 2rem;">
+          <div style="font-size:3rem; margin-bottom:1rem;">✅</div>
+          <h3 style="color:hsl(220,40%,13%); margin-bottom:0.75rem;">Request Submitted!</h3>
+          <p style="color:hsl(220,15%,46%); line-height:1.7;">Thank you for reaching out. Our team will review your project details and send you a detailed proposal within 48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="footer-logo-img" />
+            <span>Tattvasim</span>
+          </div>
+          <p>Pioneering quantum chemistry solutions for drug discovery. Precision at the molecular level, innovation at scale.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">DFT & QED Calculations</a>
+          <a href="services.html">Quantum Molecular Modeling</a>
+          <a href="services.html">AI-Powered Modeling</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="team.html">Our Team</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">LinkedIn</a>
+          <a href="#">Publications</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Tattvasim. All rights reserved.</span>
+        <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+  <script>
+    function submitForm() {
+      const email = document.getElementById('email').value;
+      const firstName = document.getElementById('firstName').value;
+      if (!email || !firstName) { alert('Please fill in at least your name and email.'); return; }
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

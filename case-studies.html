@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies | Tattvasim</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cs-hero-bg { background: linear-gradient(135deg, hsl(265,70%,15%) 0%, hsl(220,60%,10%) 100%); }
+    .case-study-full {
+      padding: 5rem 0;
+      border-bottom: 1px solid hsl(220,20%,88%);
+    }
+    .case-study-full:last-child { border-bottom: none; }
+    .cs-grid { display: grid; gap: 2.5rem; }
+    @media(min-width:1024px){ .cs-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .cs-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.75rem; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .cs-badge-drug { background: hsl(265,70%,55%,0.12); color: hsl(265,70%,55%); }
+    .cs-badge-materials { background: hsl(175,65%,45%,0.12); color: hsl(175,65%,45%); }
+    .cs-badge-energy { background: hsl(155,75%,45%,0.12); color: hsl(155,75%,45%); }
+    .cs-title { font-size: 1.5rem; font-weight: 700; color: hsl(220,40%,13%); margin-bottom: 0.75rem; }
+    .cs-outcome {
+      background: hsl(215,25%,94%);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+    .cs-outcome h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: hsl(220,15%,46%); margin-bottom: 0.75rem; }
+    .cs-outcome p { font-size: 0.9rem; color: hsl(220,40%,13%); line-height: 1.6; }
+    .cs-methods { margin-top: 1.5rem; }
+    .cs-methods h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: hsl(220,15%,46%); margin-bottom: 0.75rem; }
+    .cs-method-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .cs-method-tags span {
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      background: hsl(0,0%,100%);
+      border: 1px solid hsl(220,20%,88%);
+      border-radius: 100px;
+      color: hsl(220,40%,13%);
+    }
+    .cs-detail-box {
+      background: hsl(220,60%,20%);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      color: white;
+    }
+    .cs-detail-box h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.25rem; }
+    .cs-detail-box p { font-size: 0.875rem; color: hsl(210,40%,85%); line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="logo-img" />
+        <span class="logo-text">Tattvasim</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="case-studies.html" class="nav-link active">Case Studies</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="contact.html" class="nav-cta">Discuss Your Project</a>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-hero cs-hero-bg">
+    <div class="container">
+      <div class="section-label" style="color:hsl(175,65%,60%); margin-bottom:1rem;">Industry Case Studies</div>
+      <h1>Real-World Impact Across Industries</h1>
+      <p>From advanced materials discovery to sustainable energy solutions, our computational approaches drive innovation across multiple domains.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Drug Discovery -->
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-drug">Drug Discovery</span>
+          <h2 class="cs-title">Kinase Inhibitor Optimization</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Discovered novel allosteric binding sites through MD ensemble analysis, enabling a new class of selective inhibitors with improved drug-like properties and reduced off-target effects.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Discovered novel allosteric binding sites through MD ensemble analysis, leading to a 10-fold improvement in selectivity.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>Allosteric Site Discovery</span>
+              <span>Lead Optimization</span>
+              <span>Molecular Dynamics</span>
+              <span>DFT Calculations</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Applied extensive MD ensemble simulations to map protein conformational landscapes and identify cryptic allosteric pockets invisible to static crystal structures. Quantum mechanical scoring refined binding affinity predictions, while AI-guided optimization prioritized compounds with optimal selectivity profiles.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-drug">Drug Discovery</span>
+          <h2 class="cs-title">PROTAC Linker Design</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Identified optimal linker conformations using quantum molecular modeling, achieving a ternary complex geometry that maximized ubiquitination efficiency and degradation selectivity.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Identified optimal linker conformations using quantum molecular modeling, reducing experimental cycles by 60%.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>PROTAC Linker Design</span>
+              <span>Quantum Modeling</span>
+              <span>Fragment-Based Drug Design</span>
+              <span>Ternary Complex Modeling</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Developed a quantum chemistry-guided framework for PROTAC linker optimization, systematically sampling linker length, rigidity, and chemical composition to identify conformations that stabilize the productive POI-PROTAC-E3 ternary complex. Integration of free energy calculations ensured thermodynamically favorable degrader designs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-drug">Drug Discovery</span>
+          <h2 class="cs-title">Antibody-Drug Conjugate Screening</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Quantum-guided fragment linking for novel antimicrobial leads, identifying linker-payload combinations with optimal stability and cytotoxicity balance.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Quantum-guided fragment linking for novel antimicrobial leads achieved a DAR of 4 with superior stability profile.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>ADC Screening</span>
+              <span>Fragment Linking</span>
+              <span>ADMET Predictions</span>
+              <span>Quantum Chemistry</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Employed quantum mechanical calculations to predict linker hydrolysis rates and payload release profiles under physiological conditions. ADMET profiling of payload-linker combinations identified candidates with optimal therapeutic windows, reducing the experimental screening burden by prioritizing the most promising ADC designs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-drug">Drug Discovery</span>
+          <h2 class="cs-title">Metalloenzyme Mechanism Study</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Elucidated catalytic mechanism using QM/MM calculations and published in Nature Chemistry, providing the first atomistic description of metal-assisted substrate activation.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Full mechanistic characterization of a challenging metalloenzyme target, resulting in a Nature Chemistry publication and 3 patented inhibitor scaffolds.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>QM/MM Calculations</span>
+              <span>Metalloenzyme Modeling</span>
+              <span>Reaction Pathway Analysis</span>
+              <span>DFT</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Applied hybrid QM/MM methodology to model the reactive metal center with quantum mechanical accuracy while treating the protein environment at the molecular mechanics level. Transition state searches along the reaction coordinate revealed key mechanistic intermediates and provided a structural basis for rational inhibitor design targeting metal coordination.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Materials -->
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-materials">Materials & Energy</span>
+          <h2 class="cs-title">MOF-Based Functional Material Design</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Designed MOFs with tunable porosity and electronic structure using DFT and ML-guided screening for targeted applications in gas separation and catalysis.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Designed MOFs with tunable porosity and electronic structure using DFT and ML-guided screening, achieving 40% selectivity improvement over known materials.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>MOF Design</span>
+              <span>Porosity Engineering</span>
+              <span>Band Gap Engineering</span>
+              <span>DFT + ML Screening</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Combined high-throughput DFT calculations of MOF electronic properties with machine learning surrogate models to screen thousands of hypothetical frameworks. Identified optimal linker-node combinations that simultaneously optimized pore geometry for target molecule selectivity and electronic structure for photocatalytic activity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-materials">Materials</span>
+          <h2 class="cs-title">MOF-Derived Electrode Materials</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Improved ion transport and electrochemical stability through computational screening of MOF-derived electrode materials, targeting next-generation battery performance.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Improved ion transport and electrochemical stability through computational screening, yielding 25% capacity retention improvement after 500 cycles.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>Battery Materials</span>
+              <span>MOF-Derived Electrodes</span>
+              <span>Charge Transport Modeling</span>
+              <span>Electrochemistry</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Performed DFT calculations of ion migration barriers and electronic conductivity in MOF-derived porous carbon architectures. Nudged elastic band calculations mapped optimal lithium diffusion pathways, while molecular dynamics simulations characterized electrolyte wetting behavior and interface stability under electrochemical cycling conditions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Energy -->
+    <div class="case-study-full">
+      <div class="cs-grid">
+        <div>
+          <span class="cs-badge cs-badge-energy">Clean Energy</span>
+          <h2 class="cs-title">Green Hydrogen Catalyst Discovery</h2>
+          <p style="color:hsl(220,15%,46%); line-height:1.7; margin-bottom:1.5rem;">Identified low-cost, high-activity hydrogen evolution catalysts by modeling adsorption energetics and reaction pathways, accelerating the transition to green hydrogen production.</p>
+          <div class="cs-outcome">
+            <h4>Key Outcome</h4>
+            <p>Identified low-cost, high-activity hydrogen evolution catalysts with overpotential 80 mV lower than benchmark Pt catalysts.</p>
+          </div>
+          <div class="cs-methods">
+            <h4>Methods Used</h4>
+            <div class="cs-method-tags">
+              <span>Reaction Pathways</span>
+              <span>Electrochemistry</span>
+              <span>Adsorption Energetics</span>
+              <span>DFT Screening</span>
+            </div>
+          </div>
+        </div>
+        <div class="cs-detail-box">
+          <h3>Scientific Approach</h3>
+          <p>Applied computational hydrogen electrode (CHE) methodology to screen hundreds of earth-abundant transition metal alloys and single-atom catalysts for hydrogen evolution activity. DFT-calculated adsorption free energies for H*, OH*, and O* intermediates predicted catalytic activity following Sabatier principle, with microkinetic modeling validating predicted turnover frequencies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to see what quantum chemistry can do for your research?</h2>
+        <p>Fill out the form and receive a detailed proposal within 48 hours.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-accent-lg">Discuss Your Project</a>
+          <a href="mailto:info@tattvasim.com" class="btn-outline-white-lg">Email Us Directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/tattvasim-logo-ddbl-6zo.png" alt="Tattvasim" class="footer-logo-img" />
+            <span>Tattvasim</span>
+          </div>
+          <p>Pioneering quantum chemistry solutions for drug discovery. Precision at the molecular level, innovation at scale.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">DFT & QED Calculations</a>
+          <a href="services.html">Quantum Molecular Modeling</a>
+          <a href="services.html">AI-Powered Modeling</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="team.html">Our Team</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="contact.html">Get In Touch</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Tattvasim. All rights reserved.</span>
+        <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
