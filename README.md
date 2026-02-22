@@ -1,4 +1,4 @@
-# Tattvasim — Quantum-Powered Drug Discovery Website
+# Tattvasim — Quantum-Powered Drug Discovery 
 
 A faithful static HTML/CSS/JS replica of **[tattvasim.netlify.app](https://tattvasim.netlify.app)**, reverse-engineered from the original build artifacts.
 
