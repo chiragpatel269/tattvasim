@@ -1033,3 +1033,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .not-found h1 { font-size: 4rem; font-weight: 800; color: hsl(var(--primary)); margin-bottom: 0.5rem; }
 .not-found p { color: hsl(var(--muted-foreground)); margin-bottom: 2rem; }
+
+/* Make ONLY Capabilities bullet points black */
+.service-detail-list li {
+    color: #000000 !important;
+}
